@@ -1,7 +1,3 @@
-# `@hello-worlds/vfx`
+# @intersloper/core
 
-A threejs / @react-three/fiber library to add visual effects like atmospheres to your scene.
-
-## Docs
-
-Visit [https://worlds.kenny.wtf](https://worlds.kenny.wtf/intro) for documentation, examples, and external resources.
+Typescript neural network library based on [Micrograd](https://github.com/karpathy/micrograd/blob/master/README.md)
