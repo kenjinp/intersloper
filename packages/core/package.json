@@ -17,6 +17,7 @@
   "sideEffects": false,
   "devDependencies": {
     "@types/jest": "^29.5.7",
+    "@types/lodash": "^4.14.201",
     "@types/node": "^20.8.10",
     "esbuild": "^0.18.10",
     "esbuild-jest": "^0.5.0",
@@ -30,6 +31,7 @@
     "deep learning"
   ],
   "dependencies": {
+    "lodash": "^4.17.21",
     "rand-seed": "^1.0.2"
   }
 }

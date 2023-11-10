@@ -9,7 +9,7 @@
     "docs": "turbo run dev --filter=docs",
     "build": "turbo run build --filter=./packages/*",
     "preinstall": "npx only-allow pnpm",
-    "test": "jest --passWithNoTests"
+    "test": "turbo run test --filter=./packages/*"
   },
   "keywords": [],
   "author": "",

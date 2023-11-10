@@ -7,6 +7,7 @@ export enum Operations {
   NEG = "NEG",
   RELU = "ReLU",
   NONE = "",
+  TANH = "tanh",
 }
 
 const ensureValue = (other: Value | number): Value => {
@@ -127,5 +128,25 @@ export class Value {
       v._backward();
     }
     return this;
+  }
+
+  // def tanh(self):
+  // x = self.data
+  // t = (math.exp(2*x) - 1)/(math.exp(2*x) + 1)
+  // out = Value(t, (self, ), 'tanh')
+
+  // def _backward():
+  //   self.grad += (1 - t**2) * out.grad
+  // out._backward = _backward
+
+  // return out
+
+  tanh(): Value {
+    const t = (Math.exp(2 * this.data) - 1) / (Math.exp(2 * this.data) + 1);
+    const out = new Value(t, [this], Operations.TANH);
+    out._backward = () => {
+      this.grad += (1 - t ** 2) * out.grad;
+    };
+    return out;
   }
 }

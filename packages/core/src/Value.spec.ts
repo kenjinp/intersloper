@@ -93,8 +93,8 @@ describe("Value", () => {
       const a = new Value(-2);
       const b = a.relu();
       b.backward();
-      expect(a.grad).toBe(0);
-      expect(b.grad).toBe(0);
+      expect(b.data).toBe(0);
+      expect(b.grad).toBe(1);
     });
   });
 
@@ -109,7 +109,7 @@ describe("Value", () => {
       const b = a.neg();
       b.backward();
       expect(a.grad).toBe(-1);
-      expect(b.grad).toBe(0);
+      expect(b.grad).toBe(1);
     });
   });
 

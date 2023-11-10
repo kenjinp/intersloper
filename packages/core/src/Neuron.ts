@@ -19,13 +19,14 @@ export class Neuron extends Module {
   }
 
   // pass inputs to neuron and calculate output
-  call(input: Value[] | number[]) {
-    const act = this.weights.reduce(
-      (acc, w, i) => acc.add(w.mul(input[i])),
-      this.bias
-    );
+  call(input: Value[] | number[]): Value {
+    const x = input.map((i) => (i instanceof Value ? i : new Value(i)));
+    const act = this.weights
+      .map((w, i) => w.mul(x[i]))
+      .reduce((a, b) => a.add(b), this.bias);
+    const out = this.nonLinear ? act.tanh() : act;
 
-    return this.nonLinear ? act.relu() : act;
+    return out;
   }
 
   // returns list of params

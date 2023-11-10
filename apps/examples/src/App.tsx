@@ -13,20 +13,22 @@ function App() {
     // console.log("forward", neuron.call(inputs).data);
     // console.log("backward", neuron.call(inputs).backward());
 
-    const x = [2.0, 3.0, -1.0];
-    const n = new MultilayerPerceptron(3, [4, 4, 1]);
-    n.call(x);
-    // console.log(n);
+    for (let i = 0; i < 100; i++) {
+      const x = [2.0, 3.0, -1.0];
+      const n = new MultilayerPerceptron(3, [4, 4, 1]);
+      n.call(x);
+      console.log(n.call(x)[0].data);
+    }
 
-    const xs = [
-      [2.0, 3.0, -1.0],
-      [3.0, -1.0, 0.5],
-      [0.5, 1.0, 1.0],
-      [1.0, 1.0, -1.0],
-    ];
-    const ys = [1.0, -1.0, -1.0, 1.0]; // desired
+    // const xs = [
+    //   [2.0, 3.0, -1.0],
+    //   [3.0, -1.0, 0.5],
+    //   [0.5, 1.0, 1.0],
+    //   [1.0, 1.0, -1.0],
+    // ];
+    // const ys = [1.0, -1.0, -1.0, 1.0]; // desired
 
-    const ypred: Value[] = xs.map((x) => n.call(x));
+    // const ypred: Value[] = xs.map((x) => n.call(x));
 
     // grad descent
     // for (let k = 0; k < 20; k++) {
@@ -48,7 +50,7 @@ function App() {
     //   // console.log(n.parameters());
     //   // console.log(k, ypred, loss.data);
     // }
-    console.log(ypred);
+    // console.log(ypred);
   };
 
   useEffect(() => {
